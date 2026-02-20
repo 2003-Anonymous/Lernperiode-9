@@ -18,5 +18,5 @@ Ich habe mich für eine Kombination aus den drei Technologien entschieden, da di
 Heute habe ich ein Toutorial zu Node.js angeschaut und nachgemacht. Das Ergebnis war ein simples Backend, welches zwei GET und eine POST-Anfrage verarbeitet. Die erste GET-Anfrage besitzt den Endpunkt "/" und wird beim Aufrufen der API im Browser direkt angezeigt. Die zweite GET-Anfrage gibt einen Player im JSON-Format zurück und mit der POST-Anfrage kann man Gold hinzufügen. Das ganze habe ich dann mit Postman noch getestet und eigene Dinge hinzugefügt. Zum Beispiel wird jetzt "Hello World!" angezeigt. Git `git status`
 
 ```bash
-npm install
+$ npm install
 
