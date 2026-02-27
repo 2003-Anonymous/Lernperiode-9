@@ -20,6 +20,15 @@ Heute habe ich ein Toutorial zu Node.js angeschaut und nachgemacht. Das Ergebnis
 
 ## 27.02.2026
 
-- [ ] Backend mit MongoDB verbinden
-- [ ] Eine DELETE Endpunkt hinzufügen
-- [ ] PUT Endpunkt hinzufügen
+- [x] Backend mit MongoDB verbinden
+- [x] Einen DELETE Endpunkt hinzufügen
+- [x] PUT Endpunkt hinzufügen
+
+Heute habe ich mein Backend mit der MongoDB verbunden. Das ging ziehmlich gut und hat schnell funktioniert. Danach habe ich noch einen DELETE- und PUT-Endpunkt hinzugefügt. Danach habe ich noch die Ordnerstruktur angepasst. Ich habe z.B. einen models-Ordner für alle Klassen und einen routes-Ordner für die Endpunkte. Als nächstes habe ich noch Swagger hinzugefügt. Das war komplizierter als in C#, da ich SwaggerUI sozusagen selbst "zusammenbauen" musste. Das habe ich gemacht, indem ich für jeden Endpunkt einen Komentar mit der Methode, Erklärungen und der Übergabestruktur hinzugefügt habe. Es wird nähmlich nicht automatisch erkannt, dass das z.B. ein GET-Endpunkt ist und es wird auch nicht erkannt, dass dort z.B. eine Id mitgegeben werden muss. Das muss man alles selbst festlegen. Dann habe ich noch einen Counter programmiert, welche die kleinste freie userId herausfindet. Das wird benötigt, weil MongoDB selbst richtig lange Ids erstellt und nicht Dezimalzahlen von 1 aufwärts.
+
+## 06.03.2026
+
+- [ ] Die POST-Anfrage gegen falsche Daten absichern
+- [ ] Eine Authentifizierungsroute programmieren
+- [ ] Einen Register-Endpunkt hinzufügen
+- [ ] Einen Login-Endpunkt hinzufügen
