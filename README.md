@@ -29,6 +29,16 @@ Heute habe ich mein Backend mit der MongoDB verbunden. Das ging ziehmlich gut un
 ## 06.03.2026
 
 - [ ] Die POST-Anfrage gegen falsche Daten absichern
-- [ ] Eine Authentifizierungsroute programmieren
-- [ ] Einen Register-Endpunkt hinzufügen
-- [ ] Einen Login-Endpunkt hinzufügen
+- [x] Eine Authentifizierungsroute programmieren
+- [x] Einen Register-Endpunkt hinzufügen
+- [x] Einen Login-Endpunkt hinzufügen
+
+Heute habe ich einen Register- und Login-Endpunkt hinzugefügt. Es funktioniert aber noch nicht so ganz, weil wenn ich mich registrieren will, bekomme ich als Antwort 404 und es steht, dass POST /register nicht funktioniert. Vermutlich habe ich etwas mit den Routen vertauscht oder vergessen. Zudem habe ich noch alles was letztes mal User hiess, zu Player geändert, weil ich bei der Authentifizierung schon User benutzte. Damit die Authentifizierung auch mit Swagger funktioniert, musste ich eine neue Datei mit der Konfiguration erstellen. Zudem habe ich noch eine neue User-Class erstellt. Jeder User hat einen Usernamen und ein Passwort. Vieleicht füge ich auch noch eine UserId hinzu, weil die automatischen Ids so lange sind.
+
+
+## 13.03.2026
+
+- [ ] Das Problem mit /register beheben
+- [ ] In der MongoDB noch eine Tabelle für die User erstellen
+- [ ] Einen PUT-Endpunkt für User erstellen
+- [ ] Einen DELETE-Endpunkt für User erstellen
