@@ -1,46 +1,26 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const User = require("./models/User");
+const User = require("./models/Player");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerSpec = require("./swagger")
 
 const app = express();
 app.use(express.json());
 
-const userRoutes = require("./routes/userRoutes");
-app.use("/users", userRoutes);
+const userRoutes = require("./routes/playerRoutes");
+app.use("/players", userRoutes);
+
+const authRoutes = require("./routes/JWTroutes");
+app.use("/auth", authRoutes);
 
 
-
-const options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "Meine API",
-      version: "1.0.0",
-      description: "Dokumentation meiner Node.js API"
-    },
-    servers: [
-      {
-        url: "http://localhost:3000"
-      }
-    ]
-  },
-  apis: ["./routes/*"],
-};
-
-const specs = swaggerJsdoc(options);
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 mongoose.connect("mongodb://127.0.0.1:27017/myDB")
   .then(() => console.log("MongoDB verbunden"))
   .catch(err => console.error(err));
 
-app.use(express.json());
-
-
-app.use(express.json());
 
 //MAIN
 app.get("/", (req, res) => {
