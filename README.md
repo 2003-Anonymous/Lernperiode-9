@@ -36,9 +36,15 @@ Heute habe ich mein Backend mit der MongoDB verbunden. Das ging ziehmlich gut un
 Heute habe ich einen Register- und Login-Endpunkt hinzugefügt. Es funktioniert aber noch nicht so ganz, weil wenn ich mich registrieren will, bekomme ich als Antwort 404 und es steht, dass POST /register nicht funktioniert. Vermutlich habe ich etwas mit den Routen vertauscht oder vergessen. Zudem habe ich noch alles was letztes mal User hiess, zu Player geändert, weil ich bei der Authentifizierung schon User benutzte. Damit die Authentifizierung auch mit Swagger funktioniert, musste ich eine neue Datei mit der Konfiguration erstellen. Zudem habe ich noch eine neue User-Class erstellt. Jeder User hat einen Usernamen und ein Passwort. Vieleicht füge ich auch noch eine UserId hinzu, weil die automatischen Ids so lange sind.
 
 
-## 13.03.2026
+## 20.03.2026
 
 - [ ] Das Problem mit /register beheben
 - [ ] In der MongoDB noch eine Tabelle für die User erstellen
-- [ ] Einen PUT-Endpunkt für User erstellen
-- [ ] Einen DELETE-Endpunkt für User erstellen
+- [x] Einen PUT-Endpunkt für User erstellen
+- [x] Einen DELETE-Endpunkt für User erstellen
+
+Heute bin ich nicht so gut vorwärts gekommen, da ich ein grosses Problem hatte, und zwar wenn ich im Code den Text verändert habe, welchen man sieht, wenn man die API aufruft, hat man die Veränderung nicht gesehen. Ich habe sehr viel Zeit damit verloren, den Fehler zu suchen und als schliesslich auch ChatGPT und mein Lehrer nicht weiterwussten, habe ich begonnen, Stück für Stück vom Code in ein neues Projekt zu übernehmen. Ich habe jetzt alle HTTP-Methoden von Player übernommen und habe gerade angefangen, auch noch die JWT-Authentifizierung zu übernehmen. Bis jetzt hat alles ohne Fehler funktioniert.
+
+## 27.03.2026
+- [ ] Den restlichen Code ins neue Projekt übernehmen.
+- [ ] Wenn alles funktioniert, noch eine Delete-Methode für die Authentifizierung hinzufügen.
