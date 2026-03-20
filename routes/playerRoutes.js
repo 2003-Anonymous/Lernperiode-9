@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 
-async function getNextSequence(name){
+async function getNextSequence(){
     const players = await Player.find({}, { playerId: 1 }).sort({ playerId: 1 });
 
     let id = 1;
@@ -30,12 +30,15 @@ async function getNextSequence(name){
  *         description: List of all players.
  */
 router.get("/", async (req, res) => {
-    try {
+    res.send("Hello World!");
+
+
+    /* try {
         const players = await Player.find().sort({ playerId: 1 });
         res.json(players);
     } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+        res.status(500).json("player router get /", { error: err.message });
+    } */
 });
 
 
@@ -68,7 +71,7 @@ router.get("/:playerId", authenticateToken, async (req, res) => {
 
         res.json(player);
     } catch(err){
-        res.status(500).json({ error: err.message });
+        res.status(500).json("get player id", { error: err.message });
     }
 });
 
@@ -102,9 +105,9 @@ router.get("/:playerId", authenticateToken, async (req, res) => {
  *       201:
  *         description: Player created
  */
-router.post("/", async (req, res) => {
+router.post("/players", async (req, res) => {
     try{
-        const newId = await getNextSequence("playerId");
+        const newId = await getNextSequence();
 
         const player = new Player({
             playerId: newId,
@@ -118,7 +121,7 @@ router.post("/", async (req, res) => {
         res.status(201).json(player);
 
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json("test test"/*{ error: err.message }*/);
     }
 });
 
@@ -190,7 +193,7 @@ router.put("/:playerId", async (req, res) => {
  */
 router.delete("/:playerId", async (req, res) => {
     try {
-        await User.findOneAndDelete({ playerId: req.params.playerId });
+        await Player.findOneAndDelete({ playerId: req.params.playerId });
         res.json({ message: "Player deleted" });
 
     } catch (err) {
@@ -201,7 +204,7 @@ router.delete("/:playerId", async (req, res) => {
 
 
 function authenticateToken(req, res, next){
-    const authHeader = req.headers("authorization");
+    const authHeader = req.headers["authorization"];
 
     const token = authHeader && authHeader.split(" ")[1];
 
@@ -209,7 +212,7 @@ function authenticateToken(req, res, next){
         return res.sendStatus(401);
     }
 
-    jwt.veryfy(token, SECRET, (err, user) => {
+    jwt.verify(token, SECRET, (err, user) => {
         if(err){
             return res.sendStatus(403);
         }

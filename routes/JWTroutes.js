@@ -107,4 +107,23 @@ router.post("/register", async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Returns all users
+ *     tags:
+ *       - Authentication
+ *     responses:
+ *       200:
+ *         description: List of all users.
+ */
+router.get("/users", async (req, res) => {
+    try {
+        const users = await User.find().sort({ userId: 1 });
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+})
 module.exports = router;
